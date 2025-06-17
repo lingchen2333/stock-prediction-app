@@ -12,7 +12,7 @@ const Registration = () => {
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   const handleUserChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
