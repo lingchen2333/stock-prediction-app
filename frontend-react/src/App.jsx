@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
 import AuthProvider from "./components/AuthProvider";
+import Dashboard from "./dashboard/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   return (
@@ -16,8 +19,31 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/register" element={<Registration />} />
-            <Route path="/login" element={<Login />} />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute>
+                  <Registration />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute>
+                  <Login />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
           </Routes>
           <Footer />
         </BrowserRouter>
